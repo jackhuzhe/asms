@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<title>Araf admin</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
+<link
+	href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/uniform/css/uniform.default.css"
+	rel="stylesheet" type="text/css" />
+
+<link href="../../assets/plugins/gritter/css/jquery.gritter.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/bootstrap-toastr/toastr.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- END GLOBAL MANDATORY STYLES -->
+
+<!-- BEGIN THEME STYLES -->
+<link href="../../assets/css/style-metronic.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/css/style-responsive.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/plugins.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/pages/tasks.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/themes/default.css" rel="stylesheet"
+	type="text/css" id="style_color" />
+<link href="../../assets/css/custom.css" rel="stylesheet"
+	type="text/css" />
+<!-- END THEME STYLES -->
+
+<!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+<link
+	href="../../assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/select2/select2.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/plugins/select2/select2-metronic.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/data-tables/DT_bootstrap.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../../assets/plugins/bootstrap-datepicker/css/datepicker.css"
+	rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGIN STYLES -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+
+<link
+	href="../../assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+	rel="stylesheet" type="text/css" />
+
+<!-- END PAGE LEVEL STYLES -->
+
+<!-- GLOBAL SCRIPT -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<araf:script src="assets/plugins/respond.min.js" />
+<araf:script src="assets/plugins/excanvas.min.js" /> 
+<![endif]-->
+<script src="../../assets/plugins/jquery-1.10.2.min.js"></script>
+<script src="../../assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script
+	src="../../assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="../../assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script
+	src="../../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../assets/plugins/jquery.blockui.min.js"></script>
+<script src="../../assets/plugins/jquery.cookie.min.js"></script>
+<script src="../../assets/plugins/uniform/jquery.uniform.min.js"></script>
+
+<script src="../../assets/plugins/gritter/js/jquery.gritter.js"></script>
+<script src="../../assets/plugins/jquery.pulsate.min.js"></script>
+<script src="../../assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN CORE LEVEL SCRIPTS -->
+<script src="../../assets/scripts/core/app.js"></script>
+<script src="../../assets/scripts/custom/custom.js"></script>
+<!-- END CORE LEVEL SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+
+
+<!-- PAGE SCRIPT -->
+<!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<script
+	src="../../assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+<script
+	src="../../assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script
+	src="../../assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="../../assets/plugins/select2/select2.min.js"></script>
+<script src="../../assets/plugins/data-tables/jquery.dataTables.js"></script>
+<script src="../../assets/plugins/data-tables/DT_bootstrap.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<script src="../../assets/scripts/core/datatable.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../../assets/scripts/custom/jobMonitor.js"></script>
+
+<script>
+jQuery(document).ready(function() {       
+    // initiate layout and plugins
+    App.init();
+    Custom.init();
+    Custom.initIntro();
+	JobMonitor.init();
+	JobMonitor.initPickers();
+	JobMonitor.handleRecords();
+
+	$("button#list_add").click(function(){
+		$("div#editField").show();
+		});
+	
+	$("button#list_edit").click(function(){
+		$("div#editField").show();
+		});
+	
+	$("button#closeField").click(function(){
+		$("div#editField").hide();
+		});
+
+	$("button#submitButton").click(function(){
+		$("div#editField").show();
+		});
+	
+});
+</script>
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<link rel="shortcut icon" href="../../assets/favicon.ico" />
+
+</head>
+<body class="page-header-fixed" data-accountid="${account.id }">
+
+<!-- BEGIN HEADER -->
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-fixed-top"><!-- BEGIN TOP NAVIGATION BAR -->
+<div class="header-inner"><!-- BEGIN LOGO --> <a
+	class="navbar-brand" href="index.html"> <font
+	style="color: white; margin-left: 15px;">ARAF </font> <font
+	style="color: red">FRAMEWORK</font> </a> <!-- END LOGO --> <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+<a href="javascript:;" class="navbar-toggle" data-toggle="collapse"
+	data-target=".navbar-collapse"> <img
+	src="../../assets/img/menu-toggler.png" alt="" /> </a> <!-- END RESPONSIVE MENU TOGGLER -->
+<!-- BEGIN TOP NAVIGATION MENU -->
+<ul class="nav navbar-nav pull-right">
+	<!-- BEGIN INBOX DROPDOWN -->
+	<li class="dropdown" id="header_inbox_bar"><a href="#"
+		class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+		data-close-others="true"> <i class="fa fa-envelope"></i> <span
+		class="badge new-message-badge"> 0 </span> </a>
+	<ul class="dropdown-menu extended inbox">
+		<li>
+		<p id="header_inbox_newmessagecount">您有 0 条新消息</p>
+		</li>
+		<li>
+		<ul id="header_inbox" class="dropdown-menu-list scroller"
+			style="height: 0px">
+		</ul>
+		</li>
+		<li class="external"><a href=""> 查看所有消息 <i
+			class="m-icon-swapright"></i> </a></li>
+	</ul>
+	</li>
+	<!-- END INBOX DROPDOWN -->
+
+	<!-- BEGIN USER LOGIN DROPDOWN -->
+	<li class="dropdown user"><a href="#" class="dropdown-toggle"
+		data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+	<img alt="" src="../../assets/img/avatar1_small.jpg" /> <span
+		class="username"> </span> <i class="fa fa-angle-down"></i> </a>
+	<ul class="dropdown-menu">
+		<li><a href="#"> <i class="fa fa-user"></i> 个人信息 </a></li>
+		<li><a href="#"> <i class="fa fa-envelope"></i> 消息中心 <span
+			class="badge badge-danger  new-message-badge"> 0 </span> </a></li>
+		<li class="divider"></li>
+		<li><a href="javascript:;" id="trigger_fullscreen"> <i
+			class="fa fa-arrows"></i> 全屏 </a></li>
+		<li><a href="../login.html"> <i class="fa fa-key"></i> 退出 </a></li>
+	</ul>
+	</li>
+	<!-- END USER LOGIN DROPDOWN -->
+</ul>
+<!-- END TOP NAVIGATION MENU --></div>
+<!-- END TOP NAVIGATION BAR --></div>
+<!-- END HEADER -->
+<!-- END HEADER -->
+
+<div class="clearfix"></div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container"><!-- BEGIN SIDEBAR --> <!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+<div class="page-sidebar navbar-collapse collapse"><!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+<!-- BEGIN SIDEBAR MENU -->
+<ul class="page-sidebar-menu" data-auto-scroll="true"
+	data-slide-speed="200">
+	<li class="sidebar-toggler-wrapper"><!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+	<div class="sidebar-toggler hidden-phone"></div>
+	<!-- BEGIN SIDEBAR TOGGLER BUTTON --></li>
+	<li class="start active" id="index"><a href="../index.html"> <i
+		class="fa fa-home"></i> <span class="title"> 主页 </span> <span
+		class="selected"> </span> </a></li>
+	<li><a href="javascript:;"> <i class="fa  fa-cloud"></i> <span
+		class="title"> 管理平台 </span> <span class="arrow"> </span> </a>
+	<ul class="sub-menu">
+		<li id="jobConfigs"><a href="jobConfigList.html"> <i
+			class="fa fa-list"></i> 定义列表 </a></li>
+		<li id="jobConfig"><a href="jobConfig.html"> <i
+			class="fa fa-gear"></i> 定义 </a></li>
+	</ul>
+	</li>
+	<li><a href="javascript:;"> <i class="fa fa-gears"></i> <span
+		class="title"> 管理中心 </span> <span class="arrow"> </span> </a>
+	<ul class="sub-menu">
+		<li class="tooltips" id="user"><a
+			href="../usermanagement/userDetail.html"> <i class="fa fa-user"></i>
+		用户管理 </a></li>
+		<li class="tooltips" id="messages" data-container="body"
+			data-placement="right" data-html="true" data-original-title="">
+		<a href="../management-center/messagecenter.html"> <span
+			class="badge new-message-badge"> 0 </span> <i class="fa fa-comments"></i>
+		消息中心 </a></li>
+	</ul>
+	</li>
+</ul>
+<!-- END SIDEBAR MENU --></div>
+</div>
+<!-- END SIDEBAR --> 
+<script>
+
+$(document).ready(function() {
+	
+	$('.page-sidebar-wrapper li').removeClass("active");
+	
+	$('#jobConfigs').addClass("active");
+	$('#jobConfigs').parent().closest("li").addClass("active");
+	
+})
+
+
+</script>
+
+<!-- END SIDEBAR --> <!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+<div class="page-content"><!-- BIGIN PAGE --> <!-- BEGIN PAGE HEADER-->
+<div class="row">
+<div class="col-md-12"><!-- BEGIN PAGE TITLE & BREADCRUMB-->
+<h3 class="page-title">消息管理列表</h3>
+<ul class="page-breadcrumb breadcrumb">
+	<li><i class="fa fa-home"></i> <a href="../index.html"> 首页 </a> <i
+		class="fa fa-angle-right"></i></li>
+	<li><a href="#"> 消息管理平台 </a> <i class="fa fa-angle-right"></i></li>
+	<li><a href="jobConfig.html"> 消息列表 </a></li>
+</ul>
+<!-- END PAGE TITLE & BREADCRUMB--></div>
+</div>
+<!-- END PAGE HEADER-->
+
+
+<div id="list_delete-modal" class="modal fade"
+	aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+	tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button class="close" aria-hidden="true" data-dismiss="modal"
+	type="button"></button>
+<h4 class="modal-title">确认删除</h4>
+</div>
+<div class="modal-body">确定要删除此记录？</div>
+<div class="modal-footer">
+<button class="btn green" type="button"
+	id="list_delete-modal-confirm">确认</button>
+<button class="btn default" data-dismiss="modal" type="button">返回</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12"><!-- Begin: life time stats -->
+<div class="portlet">
+<div class="portlet-title">
+<div class="caption"><!-- <i class="fa fa-shopping-cart"></i> -->
+
+</div>
+<div class="actions"><a href="#">
+<button id="list_add" class="btn green">添加 <i
+	class="fa fa-plus"></i></button>
+</a> <a href="#">
+<button id="list_edit" class="btn purple"">修改 <i
+	class="fa fa-edit"></i></button>
+</a> <a href="#">
+<button id="list_delete" class="btn default red">删除 <i
+	class="fa fa-trash-o"></i></button>
+</a></div>
+</div>
+
+<div class="portlet-body">
+<div class="table-container">
+<div class="table-actions-wrapper"><span> </span></div>
+<table class="table table-striped table-bordered table-hover"
+	id="list">
+	<thead>
+		<tr  class="heading">
+			<th width="5%"><input type="checkbox" class="group-checkable">
+			</th>
+
+			<th width="35%">消息名称</th>
+			<th width="55%">消息描述</th>
+
+			<th width="10%">操作</th>
+		</tr>
+		<tr class="filter">
+			<td></td>
+			<td>
+			<div class="form-group">
+			<div class="input-icon right"><i class="fa fa-font"></i><input
+				type="text" class="form-control form-filter placeholder-no-fix"
+				id="jobType" name="jobType" /></div>
+			</div>
+			</td>
+
+			<td>
+			<div class="form-group">
+			<div class="input-icon right"><i class="fa fa-font"></i><input
+				type="text" class="form-control form-filter placeholder-no-fix"
+				id="description" name="description" /></div>
+			</div>
+			</td>
+			<td>
+			<div class="margin-bottom-5">
+			<button class="btn btn-sm yellow filter-submit margin-bottom">
+			<i class="fa fa-search"></i> 查询</button>
+
+			</div>
+			<button class="btn btn-sm red filter-cancel"><i
+				class="fa fa-times"></i> 重置</button>
+			</td>
+		</tr>
+		<tr class="filter">
+			<td><input type="checkbox" name="12" value="12"></td>
+			<td>
+			<div class="form-group">
+			<div class="input-icon right">aaaaa</div>
+			</div>
+			</td>
+
+			<td>
+			<div class="form-group">
+			<div class="input-icon right">ddddd</div>
+			</div>
+			</td>
+			<td>
+			<a class="btn default btn-xs blue" href="jobConfig.html"><i class="fa fa-share"></i>查看</a>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- End: life time stats --></div>
+</div>
+
+
+<!-- ===================================== -->
+
+<div id="editField" class="row" style="display: none">
+     <div class="col-md-12">
+         <div class="portlet box green">
+             <div class="portlet-title">
+                 <div class="caption">
+                     <i class="fa fa-reorder"></i>消息定义
+                 </div>
+                 <div class="tools">
+                     <a href="javascript:;" class="collapse" >
+                     </a>
+                     <a href="javascript:;" class="reload">
+                     </a>
+                 </div>
+             </div>
+             <div class="portlet-body form" >
+                 <!-- BEGIN FORM-->
+                 <form id="jobConfigForm" method="POST">
+                 	                 
+                     <div class="form-body">
+                         
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="form-group">
+
+                                     <label class="control-label col-md-3">消息名称
+                                     		<span class="required">
+                                              *
+                                         </span>
+                                     </label>
+                                     <div class="col-md-9">
+
+                                     <div class="input-icon right">
+                                     	<i class="fa fa-font"></i>
+                                         <input type="text" class="form-control" placeholder="请输入消息名称" maxlength="40" id="jobType" name="jobType"" value="" />
+                                     </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col-md-6">
+                                 <div class="form-group">
+
+                                     <label class="control-label col-md-3">消息描述
+
+                                     </label>
+                                     <div class="col-md-9">
+
+                                     <div class="input-icon right">
+                                     	<i class="fa fa-font"></i>
+                                         <input type="text" class="form-control" placeholder="请输入描述信息" id="description" name="description"  ></input>
+                                     </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>                         
+
+                     </div>
+                     <div class="form-actions fluid">
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <div class="col-md-offset-4 col-md-4">
+                                     <button id="submitButton" type="button" class="btn green">保存</button>
+                                     <button id="closeField" type="button" class="btn default" >关闭</button>
+                                 </div>
+                             </div>
+                             <div class="col-md-6">
+                             </div>
+                         </div>
+                     </div>
+                 </form>
+                 <!-- END FORM-->
+             </div>
+         </div>
+     </div>
+</div>
+
+
+<!-- ====================================== -->
+
+
+<!-- END PAGE LEVEL SCRIPTS --> 
+<script type="text/javascript">
+
+	/* Add a click handler to the rows - add class to this row. */
+	$('#list tbody').click(function(event) {		
+
+		var a = $(event.target.parentNode).find(':checkbox');
+		var id = a.attr("value");
+		// ç»å®æé®
+		$('#list_edit').bind("click", function(e) {
+			editUrl(id);
+			e.preventDefault();
+			return false;
+		});
+
+		// ç»å®æé®
+		$('#list_delete').unbind();
+		$('#list_delete').bind("click", function(e) {
+			deleteUrl(id);
+			e.preventDefault();
+			return false;
+		});
+
+	});
+
+	var TableAjax = function() {
+
+		var initPickers = function() {
+			//init date pickers
+			$('.date-picker').datepicker({
+				rtl : App.isRTL(),
+				autoclose : true
+			});
+		}
+
+		var handleRecords = function() {
+
+			var grid = new Datatable();
+			grid.init({
+				src : $("#list"),
+				onSuccess : function(grid) {
+					// execute some code after table records loaded
+				},
+				onError : function(grid) {
+					// execute some code on network or other general error  
+				},
+				dataTable : { // here you can define a typical datatable settings from http://datatables.net/usage/options 
+					/* 
+					    By default the ajax datatable's layout is horizontally scrollable and this can cause an issue of dropdown menu is used in the table rows which.
+					    Use below "sDom" value for the datatable layout if you want to have a dropdown menu for each row in the datatable. But this disables the horizontal scroll. 
+					 */
+					//"sDom" : "<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'<'table-group-actions pull-right'>>r>t<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'>r>>", 
+					"aLengthMenu" : [ [ 10, 20, 50, 100, 150 ],
+							[ 10, 20, 50, 100, 150 ] // change per page values here
+					],
+					"iDisplayLength" : 20, // default record count per page
+					"bServerSide" : true, // server side processing
+					"bStateSave" : true,
+					"bRetrieve" : true,
+					"sAjaxSource" : "${commonSearchUrl}", // ajax source
+					"aaSorting" : [ [ 1, "asc" ] ]
+				// set first column as a default sort by asc
+				}
+			});
+
+		}
+
+		return {
+
+			//main function to initiate the module
+			init : function() {
+
+				initPickers();
+				handleRecords();
+			}
+
+		};
+
+	}();
+
+	// é¡µé¢å è½½çæ¶åå¯å¨
+	jQuery(document).ready(function() {
+		App.init();
+		TableAjax.init();
+	});
+
+	function deleteUrl(id) {
+		$('#list_delete-modal').modal('show');
+
+		/* var selected = $('tbody > tr > td:nth-child(1) input[type="checkbox"]:checked',
+				oTable); */
+		// ç»å®modalä¸­çbuttonçjsäºä»¶
+		$('#list_delete-modal-confirm').unbind();
+		$('#list_delete-modal-confirm').bind("click", function(e) {
+			$.ajax({
+				"url" : "${commonDeleteUrl}/" + id + "/delete",
+				"type" : "DELETE",
+				"success" : function(response) {
+					$('#list_delete-modal').modal('hide');
+					toastr["success"](response.globalMessage);
+
+					oTable = $("#list").dataTable({
+						"bProcessing" : true,
+						"bServerSide" : true,						
+						"bRetrieve" : true,
+						"sAjaxSource" : "${commonSearchUrl}"
+					});
+
+					oTable.fnDraw();
+
+				},
+				"error" : function(response) {
+					$('#list_delete-modal').modal('hide');
+					Custom.globalError(response);
+				}
+			});
+			$('#list_delete-modal-confirm').unbind();
+			e.preventDefault();
+			return false;
+		});
+		
+	}
+</script> <!-- END PAGE --></div>
+</div>
+<!-- END CONTENT --></div>
+
+<!-- FOOTER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+<div class="footer-inner">2014 &copy; 虾兵蟹将</div>
+<div class="footer-tools"><span class="go-top"> <i
+	class="icon-angle-up"></i> </span></div>
+</div>
+
+
+
+</body>
+</html>
+

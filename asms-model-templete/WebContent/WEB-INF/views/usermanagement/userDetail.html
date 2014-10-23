@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<title>竞赛管理系统</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
+<link
+	href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/uniform/css/uniform.default.css"
+	rel="stylesheet" type="text/css" />
+
+<link href="../../assets/plugins/gritter/css/jquery.gritter.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/plugins/bootstrap-toastr/toastr.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- END GLOBAL MANDATORY STYLES -->
+
+<!-- BEGIN THEME STYLES -->
+<link href="../../assets/css/style-metronic.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/css/style-responsive.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/plugins.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/pages/tasks.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/css/themes/default.css" rel="stylesheet"
+	type="text/css" id="style_color" />
+<link href="../../assets/css/custom.css" rel="stylesheet"
+	type="text/css" />
+<!-- END THEME STYLES -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link
+	href="../../assets/plugins/bootstrap-fileinput/bootstrap-fileinput.css"
+	rel="stylesheet" type="text/css" />
+
+<link href="../../assets/plugins/select2/select2.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/plugins/select2/select2-metronic.css"
+	rel="stylesheet" type="text/css" />
+
+
+<!-- END PAGE LEVEL STYLES -->
+
+<!-- GLOBAL SCRIPT -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<araf:script url="assets/plugins/respond.min.js" />
+<araf:script url="assets/plugins/excanvas.min.js" /> 
+<![endif]-->
+<script src="../../assets/plugins/jquery-1.10.2.min.js"></script>
+<script src="../../assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script
+	src="../../assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="../../assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script
+	src="../../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../../assets/plugins/jquery.blockui.min.js"></script>
+<script src="../../assets/plugins/jquery.cookie.min.js"></script>
+<script src="../../assets/plugins/uniform/jquery.uniform.min.js"></script>
+
+<script src="../../assets/plugins/gritter/js/jquery.gritter.js"></script>
+<script src="../../assets/plugins/jquery.pulsate.min.js"></script>
+<script src="../../assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN CORE LEVEL SCRIPTS -->
+<script src="../../assets/scripts/core/app.js"></script>
+<script src="../../assets/scripts/custom/custom.js"></script>
+<!-- END CORE LEVEL SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+
+
+<!-- PAGE SCRIPT -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script
+	src="../../assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script src="../../assets/plugins/select2/select2.min.js"></script>
+<script
+	src="../../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="../../assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+
+<script src="../../assets/scripts/custom/userDetail.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<script>
+jQuery(document).ready(function() {       
+   // initiate layout and plugins
+   App.init();
+   Custom.init();
+   UserDetail.init();
+   
+});
+
+
+
+
+</script>
+
+
+<link rel="shortcut icon" href="../../assets/favicon.ico" />
+
+</head>
+<body class="page-header-fixed" data-accountid="${account.id }">
+
+	<!-- BEGIN HEADER -->
+	<!-- BEGIN HEADER -->
+	<div class="header navbar navbar-fixed-top">
+		<!-- BEGIN TOP NAVIGATION BAR -->
+		<div class="header-inner">
+			<!-- BEGIN LOGO -->
+			<a class="navbar-brand" href="index.html"> <font
+				style="color: white; margin-left: 15px;">竞赛 </font> <font
+				style="color: red">管理系统</font>
+
+			</a>
+			<!-- END LOGO -->
+			<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+			<a href="javascript:;" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse"> <img
+				src="../../assets/img/menu-toggler.png" alt="" />
+			</a>
+			<!-- END RESPONSIVE MENU TOGGLER -->
+			<!-- BEGIN TOP NAVIGATION MENU -->
+			<ul class="nav navbar-nav pull-right">
+				<!-- BEGIN INBOX DROPDOWN -->
+				<li class="dropdown" id="header_inbox_bar"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown" data-close-others="true"> <i
+						class="fa fa-envelope"></i> <span class="badge new-message-badge">
+							0 </span>
+				</a>
+					<ul class="dropdown-menu extended inbox">
+						<li>
+							<p id="header_inbox_newmessagecount">您有 0 条新消息</p>
+						</li>
+						<li>
+							<ul id="header_inbox" class="dropdown-menu-list scroller"
+								style="height: 0px">
+							</ul>
+						</li>
+						<li class="external"><a href=""> 查看所有消息 <i
+								class="m-icon-swapright"></i>
+						</a></li>
+					</ul></li>
+				<!-- END INBOX DROPDOWN -->
+
+				<!-- BEGIN USER LOGIN DROPDOWN -->
+				<li class="dropdown user"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" data-hover="dropdown"
+					data-close-others="true"> <img alt=""
+						src="../../assets/img/avatar1_small.jpg" /> <span class="username">
+
+					</span> <i class="fa fa-angle-down"></i>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="#"> <i class="fa fa-user"></i> 个人信息
+						</a></li>
+
+						<li><a href="#"> <i class="fa fa-envelope"></i> 消息中心 <span
+								class="badge badge-danger  new-message-badge"> 0 </span>
+						</a></li>
+
+						<li class="divider"></li>
+						<li><a href="javascript:;" id="trigger_fullscreen"> <i
+								class="fa fa-arrows"></i> 全屏
+						</a></li>
+
+						<li><a href="../login.html"> <i class="fa fa-key"></i> 退出
+						</a></li>
+					</ul></li>
+				<!-- END USER LOGIN DROPDOWN -->
+			</ul>
+			<!-- END TOP NAVIGATION MENU -->
+		</div>
+		<!-- END TOP NAVIGATION BAR -->
+	</div>
+	<!-- END HEADER -->
+	<!-- END HEADER -->
+
+	<div class="clearfix"></div>
+
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar-wrapper">
+			<div class="page-sidebar navbar-collapse collapse">
+				<!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+				<!-- BEGIN SIDEBAR MENU -->
+				<ul class="page-sidebar-menu" data-auto-scroll="true"
+					data-slide-speed="200">
+					<li class="sidebar-toggler-wrapper">
+						<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<div class="sidebar-toggler hidden-phone"></div> <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					</li>
+
+					<li class="start active" id="index"><a href="../index.html">
+							<i class="fa fa-home"></i> <span class="title"> 主页 </span> <span
+							class="selected"> </span>
+					</a></li>
+
+					<li><a href="javascript:;"> <i class="fa  fa-cloud"></i> <span
+							class="title"> 管理平台 </span> <span class="arrow"> </span>
+					</a>
+						<ul class="sub-menu">
+							<li id="jobConfigs"><a
+								href="../job-manage/jobConfigList.html"> <i
+									class="fa fa-list"></i> 定义列表
+							</a></li>
+							<li id="jobConfig"><a href="../job-manage/jobConfig.html">
+									<i class="fa fa-gear"></i> 定义
+							</a></li>
+
+						</ul></li>
+					<li><a href="javascript:;"> <i class="fa fa-gears"></i> <span
+							class="title"> 管理中心 </span> <span class="arrow"> </span>
+					</a>
+						<ul class="sub-menu">
+							<li class="tooltips" id="user"><a href="userDetail.html">
+									<i class="fa fa-user"></i> 用户管理
+							</a></li>
+							<li class="tooltips" id="messages" data-container="body"
+								data-placement="right" data-html="true" data-original-title="">
+								<a href="../management-center/messagecenter.html"> <span
+									class="badge new-message-badge"> 0 </span> <i
+									class="fa fa-comments"></i> 消息中心
+
+							</a>
+							</li>
+						</ul></li>
+				</ul>
+				<!-- END SIDEBAR MENU -->
+			</div>
+		</div>
+		<!-- END SIDEBAR -->
+
+		<script>
+
+$(document).ready(function() {
+	
+	$('.page-sidebar-wrapper li').removeClass("active");
+	
+	$('#${defaultMenu}').addClass("active");
+	$('#${defaultMenu}').parent().closest("li").addClass("active");
+	
+})
+
+
+</script>
+		<!-- END SIDEBAR -->
+
+		<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+
+				<!-- BIGIN PAGE -->
+				<!-- BEGIN PAGE HEADER-->
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">个人信息</h3>
+						<ul class="page-breadcrumb breadcrumb">
+							<li><i class="fa fa-home"></i> <a href="/documents"> 首页
+							</a> <i class="fa fa-angle-right"></i></li>
+							<li><a href=""> 管理 <i class="fa fa-angle-right"></i>
+							</a></li>
+							<li><a href="user"> 个人信息 </a></li>
+						</ul>
+						<!-- END PAGE TITLE & BREADCRUMB-->
+					</div>
+				</div>
+
+
+				<!-- BEGIN PAGE CONTENT -->
+				<div class="row profile">
+					<div class="col-md-12">
+						<!--BEGIN TABS-->
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab_1_3">
+								<div class="col-md-3">
+									<ul class="ver-inline-menu tabbable margin-bottom-10">
+										<li class="active"><a data-toggle="tab" href="#tab_1-1">
+												<i class="fa fa-cog"></i> 基本信息
+										</a> <span class="after"> </span></li>
+										<li><a data-toggle="tab" href="#tab_1-2"> <i
+												class="fa fa-user"></i> 修改头像
+										</a></li>
+										<li><a data-toggle="tab" href="#tab_1-3"> <i
+												class="fa fa-lock"></i> 修改密码
+										</a></li>
+
+									</ul>
+								</div>
+								<div class="col-md-9">
+									<div class="tab-content">
+										<div id="tab_1-1" class="tab-pane active">
+											<form id="userBasicForm" method="POST">
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">身份证（手机号）</label> <i
+															class="fa fa-user"></i><input type="text" id="username"
+															name="username" placeholder="身份证（手机号）"
+															class="form-control" value="" />
+													</div>
+												</div>
+
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">昵称</label> <i
+															class="fa fa-user"></i><input type="text"
+															id="applicationName" name="applicationName"
+															placeholder="昵称" class="form-control" value="" />
+													</div>
+												</div>
+
+
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">E-Mail</label> <i
+															class="fa fa-envelope"></i><input type="text" id="email"
+															name="email" placeholder="Email" class="form-control"
+															value="" />
+													</div>
+												</div>
+
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">真实姓名</label> <i
+															class="fa fa-user"></i><input type="text" id="username"
+															name="username" placeholder="真实姓名" class="form-control"
+															value="" />
+													</div>
+												</div>
+												<div class="form-group">
+													性别 <label class="checkbox"><input
+														class="make-switch" type="radio" id="usersex"
+														name="usersex" />男 &nbsp; <input class="make-switch"
+														type="radio" id="usersex" name="usersex" />女</label>
+												</div>
+												<div class="form-group">出生日期
+													<div class="input-group date date-picker margin-bottom-5"
+														data-date-format="yyyy-mm-dd">
+
+														<input type="text"
+															class="form-control form-filter input-sm"
+															name="expectedStartTime_to" placeholder="出生日期"
+															id="expectedStartTime_to"> <span
+															class="input-group-btn">
+															<button class="btn btn-sm default" type="button">
+																<i class="fa fa-calendar"></i>
+															</button>
+														</span>
+													</div>
+												</div>
+												<div class="form-group">
+												<div class="input-icon right">所在省：
+													<i class="fa fa-font"></i>
+														<select style="width:80px"
+															class="form-control select2me">
+																<option value ="1">北京</option>
+																<option value ="1">上海</option>
+																<option value ="1">广州</option> 
+														</select>
+														&nbsp;&nbsp;&nbsp;
+														所在市：
+														<select style="width:80px"
+															class="form-control select2me">
+																<option value ="1">北京</option>
+																<option value ="1">上海</option>
+																<option value ="1">广州</option> 
+														</select>
+													
+												</div></div>
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">所在学校</label> <i
+															class="fa fa-user"></i><input type="text" id="username"
+															name="username" placeholder="真实姓名" class="form-control"
+															value="" />
+													</div>
+												</div>
+
+												<div class="margiv-top-10">
+													<button type="submit" class="btn green">保存</button>
+													<button type="reset" class="btn default">取消</button>
+												</div>
+											</form>
+										</div>
+										<div id="tab_1-2" class="tab-pane">
+											<p>请选择照片</p>
+											<form
+												action="/platformaccount/${platformaccount.id}/user/pic/upload"
+												role="form" enctype="multipart/form-data" method="POST">
+												<div class="form-group">
+													<div class="fileinput fileinput-new"
+														data-provides="fileinput">
+														<div class="fileinput-new thumbnail"
+															style="width: 200px; height: 150px;">
+															<img
+																src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+																alt="" />
+														</div>
+														<div class="fileinput-preview fileinput-exists thumbnail"
+															style="max-width: 200px; max-height: 150px;"></div>
+														<div>
+															<span class="btn default btn-file"> <span
+																class="fileinput-new"> 选择照片 </span> <span
+																class="fileinput-exists"> 修改 </span> <input type="file"
+																name="...">
+															</span> <a href="#" class="btn default fileinput-exists"
+																data-dismiss="fileinput"> 取消 </a>
+														</div>
+													</div>
+													<div class="clearfix margin-top-10">
+
+														<span class="label label-danger"> NOTE! </span> <span>
+															仅支持最新的 Firefox, Chrome, Opera, Safari 以及 Internet
+															Explorer 10. </span>
+													</div>
+												</div>
+												<div class="margin-top-10">
+													<button type="submit" class="btn green">保存</button>
+													<button type="reset" class="btn default">取消</button>
+												</div>
+											</form>
+										</div>
+										<div id="tab_1-3" class="tab-pane">
+											<form action="" id="userPasswordForm" method="POST">
+												<input type="hidden" name="id" id="id" value="${user.id }" />
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">当前密码</label> <i
+															class="fa fa-lock"></i><input type="password"
+															class="form-control" name="password" id="password" />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">新密码</label> <i
+															class="fa fa-lock"></i><input type="password"
+															class="form-control" name="newPassword" id="newPassword" />
+													</div>
+												</div>
+												<div class="form-group">
+													<div class="input-icon right">
+														<label class="control-label">重复输入密码</label> <i
+															class="fa fa-lock"></i><input type="password"
+															class="form-control" name="reNewPassword" />
+													</div>
+												</div>
+												<div class="margin-top-10">
+													<button type="submit" class="btn green" id="changePsw">修改密码</button>
+													<button type="reset" class="btn default">取消</button>
+												</div>
+											</form>
+										</div>
+
+									</div>
+								</div>
+								<!--end col-md-9-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END PAGE -->
+			</div>
+		</div>
+		<!-- END CONTENT -->
+	</div>
+
+	<!-- FOOTER -->
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="footer-inner">2014 &copy; 虾兵蟹将</div>
+		<div class="footer-tools">
+			<span class="go-top"> <i class="icon-angle-up"></i>
+			</span>
+		</div>
+	</div>
+
+</body>
+</html>
+

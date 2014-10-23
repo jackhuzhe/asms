@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<title>竞赛管理系统</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" /> -->
+<link
+	href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/plugins/uniform/css/uniform.default.css"
+	rel="stylesheet" type="text/css" />
+
+<link href="../assets/plugins/gritter/css/jquery.gritter.css"
+	rel="stylesheet" type="text/css" />
+<link href="../assets/plugins/bootstrap-toastr/toastr.min.css"
+	rel="stylesheet" type="text/css" />
+<!-- END GLOBAL MANDATORY STYLES -->
+
+<!-- BEGIN THEME STYLES -->
+<link href="../assets/css/style-metronic.css" rel="stylesheet"
+	type="text/css" />
+<link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/style-responsive.css" rel="stylesheet"
+	type="text/css" />
+<link href="../assets/css/plugins.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/pages/tasks.css" rel="stylesheet"
+	type="text/css" />
+<link href="../assets/css/themes/default.css" rel="stylesheet"
+	type="text/css" id="style_color" />
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css" />
+<!-- END THEME STYLES -->
+
+<!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+<link href="../assets/plugins/gritter/css/jquery.gritter.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css"
+	rel="stylesheet" type="text/css" />
+<!-- END PAGE LEVEL PLUGIN STYLES -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href='<c:url value="../assets/css/print.css"/>' rel="stylesheet"
+	type="text/css" media="print" />
+<link href="../assets/css/pages/tasks.css" rel="stylesheet"
+	type="text/css" />
+<!-- END PAGE LEVEL STYLES -->
+
+<!-- GLOBAL SCRIPT -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<araf:script src="assets/plugins/respond.min.js" />
+<araf:script src="assets/plugins/excanvas.min.js" /> 
+<![endif]-->
+<script src="../assets/plugins/jquery-1.10.2.min.js"></script>
+<script src="../assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="../assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script
+	src="../assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script
+	src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="../assets/plugins/jquery.blockui.min.js"></script>
+<script src="../assets/plugins/jquery.cookie.min.js"></script>
+<script src="../assets/plugins/uniform/jquery.uniform.min.js"></script>
+
+<script src="../assets/plugins/gritter/js/jquery.gritter.js"></script>
+<script src="../assets/plugins/jquery.pulsate.min.js"></script>
+<script src="../assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN CORE LEVEL SCRIPTS -->
+<script src="../assets/scripts/core/app.js"></script>
+<script src="../assets/scripts/custom/custom.js"></script>
+<!-- END CORE LEVEL SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="../assets/plugins/flot/jquery.flot.min.js"
+	type="text/javascript"> </script>
+<script src="../assets/plugins/flot/jquery.flot.resize.min.js"
+	type="text/javascript"></script>
+<script src="../assets/plugins/flot/jquery.flot.categories.min.js"
+	type="text/javascript"></script>
+<script
+	src="../assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js"
+	type="text/javascript"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../assets/scripts/custom/index.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+	jQuery(document).ready(function() {
+		App.init(); // initlayout and core plugins
+		Custom.init();
+		Custom.initIntro();
+		Index.init();
+		Index.initCharts();
+
+		
+	});
+</script>
+
+<link rel="shortcut icon" href="../assets/favicon.ico" />
+
+</head>
+<body class="page-header-fixed" data-accountid="${account.id }">
+
+	<!-- BEGIN HEADER -->
+	<!-- BEGIN HEADER -->
+	<div class="header navbar navbar-fixed-top">
+		<!-- BEGIN TOP NAVIGATION BAR -->
+		<div class="header-inner">
+			<!-- BEGIN LOGO -->
+			<a class="navbar-brand" href="index.html"> <font
+				style="color: white; margin-left: 15px;">竞赛 </font> <font
+				style="color: red">管理系统</font>
+
+			</a>
+			<!-- END LOGO -->
+			<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+			<a href="javascript:;" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse"> <img
+				src="../assets/img/menu-toggler.png" alt="" />
+			</a>
+			<!-- END RESPONSIVE MENU TOGGLER -->
+			<!-- BEGIN TOP NAVIGATION MENU -->
+			<ul class="nav navbar-nav pull-right">
+				<!-- BEGIN INBOX DROPDOWN -->
+				<li class="dropdown" id="header_inbox_bar"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown" data-close-others="true"> <i
+						class="fa fa-envelope"></i> <span class="badge new-message-badge">
+							0 </span>
+				</a>
+					<ul class="dropdown-menu extended inbox">
+						<li>
+							<p id="header_inbox_newmessagecount">您有 0 条新消息</p>
+						</li>
+						<li>
+							<ul id="header_inbox" class="dropdown-menu-list scroller"
+								style="height: 0px">
+							</ul>
+						</li>
+						<li class="external"><a href=""> 查看所有消息 <i
+								class="m-icon-swapright"></i>
+						</a></li>
+					</ul></li>
+				<!-- END INBOX DROPDOWN -->
+				<!-- BEGIN USER LOGIN DROPDOWN -->
+				<li class="dropdown user"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" data-hover="dropdown"
+					data-close-others="true"> <c:if test="${ empty account.pic }">
+							<img alt="" src="../assets/img/avatar1_small.jpg" />
+						</c:if> <c:if test="${! empty account.pic }">
+							<img alt="" src="/platformaccount/${account.id}/user/image"
+								style="width: 29px; height: 29px;" />
+						</c:if> <span class="username"> </span> <i class="fa fa-angle-down"></i>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="#"> <i class="fa fa-user"></i> 个人信息
+						</a></li>
+						<li><a href="#"> <i class="fa fa-envelope"></i> 消息中心 <span
+								class="badge badge-danger  new-message-badge"> 0 </span>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:;" id="trigger_fullscreen"> <i
+								class="fa fa-arrows"></i> 全屏
+						</a></li>
+						<li><a href="login.html"> <i class="fa fa-key"></i> 退出
+						</a></li>
+					</ul></li>
+				<!-- END USER LOGIN DROPDOWN -->
+			</ul>
+			<!-- END TOP NAVIGATION MENU -->
+		</div>
+		<!-- END TOP NAVIGATION BAR -->
+	</div>
+	<!-- END HEADER -->
+	<!-- END HEADER -->
+
+	<div class="clearfix"></div>
+
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<!-- BEGIN SIDEBAR -->
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar-wrapper">
+			<div class="page-sidebar navbar-collapse collapse">
+				<!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+				<!-- BEGIN SIDEBAR MENU -->
+				<ul class="page-sidebar-menu" data-auto-scroll="true"
+					data-slide-speed="200">
+					<li class="sidebar-toggler-wrapper">
+						<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+						<div class="sidebar-toggler hidden-phone"></div> <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					</li>
+
+					<li class="start active" id="index"><a href="index.html">
+							<i class="fa fa-home"></i> <span class="title"> 主页 </span> <span
+							class="selected"> </span>
+					</a></li>
+
+					<li><a href="javascript:;"> <i class="fa  fa-cloud"></i> <span
+							class="title"> 管理平台 </span> <span class="arrow"> </span>
+					</a>
+						<ul class="sub-menu">
+							<li id="jobConfigs"><a href="job-manage/jobConfigList.html">
+									<i class="fa fa-list"></i> 定义列表
+							</a></li>
+							<li id="jobConfig"><a href="job-manage/jobConfig.html">
+									<i class="fa fa-gear"></i> 定义
+							</a></li>
+
+						</ul></li>
+					<li><a href="javascript:;"> <i class="fa fa-gears"></i> <span
+							class="title"> 管理中心 </span> <span class="arrow"> </span>
+					</a>
+						<ul class="sub-menu">
+							<li class="tooltips" id="user"><a
+								href="usermanagement/userDetail.html"> <i class="fa fa-user"></i>
+									用户管理
+							</a></li>
+							<li class="tooltips" id="messages" data-container="body"
+								data-placement="right" data-html="true" data-original-title="">
+								<a href="management-center/messagecenter.html"> <span
+									class="badge new-message-badge"> 0 </span> <i
+									class="fa fa-comments"></i> 消息中心
+
+							</a>
+							</li>
+						</ul></li>
+				</ul>
+				<!-- END SIDEBAR MENU -->
+			</div>
+		</div>
+		<!-- END SIDEBAR -->
+
+		<script>
+
+$(document).ready(function() {
+	
+	$('.page-sidebar-wrapper li').removeClass("active");
+	
+	$('#${defaultMenu}').addClass("active");
+	$('#${defaultMenu}').parent().closest("li").addClass("active");
+	
+})
+
+
+</script>
+		<!-- END SIDEBAR -->
+
+		<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+
+				<!-- BEGIN PAGE HEADER-->
+				<div class="row">
+					<div class="col-md-12">
+						<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+						<h3 class="page-title">
+							Dashboard <small>statistics and more</small>
+						</h3>
+						<ul class="page-breadcrumb breadcrumb">
+							<li><i class="fa fa-home"></i> <a href="index.html"> 首页
+							</a> <i class="fa fa-angle-right"></i></li>
+							<li><a href="#"> Dashboard </a></li>
+						</ul>
+						<!-- END PAGE TITLE & BREADCRUMB-->
+					</div>
+				</div>
+				<!-- END PAGE HEADER-->
+
+
+				<!-- BEGIN PAGE CONTENT -->
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="dashboard-stat blue">
+							<div class="visual">
+								<i class="fa fa-comments"></i>
+							</div>
+							<div class="details">
+								<div class="number">12</div>
+								<div class="desc">未读信息</div>
+							</div>
+							<a class="more" href=""> 查看更多 <i
+								class="m-icon-swapright m-icon-white"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="dashboard-stat green">
+							<div class="visual">
+								<i class="fa fa-check"></i>
+							</div>
+							<div class="details">
+								<div class="number">50</div>
+								<div class="desc">个人历史战绩</div>
+							</div>
+							<a class="more" href=""> 查看明细 <i
+								class="m-icon-swapright m-icon-white"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="dashboard-stat yellow">
+							<div class="visual">
+								<i class="fa fa-warning"></i>
+							</div>
+							<div class="details">
+								<div class="number">6</div>
+								<div class="desc">已报名的竞赛项目</div>
+							</div>
+							<a class="more" href=""> 查看明细 <i
+								class="m-icon-swapright m-icon-white"></i>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="dashboard-stat purple">
+							<div class="visual">
+								<i class="fa fa-globe"></i>
+							</div>
+							<div class="details">
+								<div class="number">10</div>
+								<div class="desc">本年度计划竞赛项目</div>
+							</div>
+							<a class="more" href=""> 查看明细 <i
+								class="m-icon-swapright m-icon-white"></i>
+							</a>
+						</div>
+					</div>
+					<!-- END PAGE CONTENT -->
+
+				</div>
+			</div>
+			<!-- END CONTENT -->
+		</div>
+
+		<!-- FOOTER -->
+		<!-- BEGIN FOOTER -->
+		<div class="footer">
+			<div class="footer-inner">2014 &copy; 虾兵蟹将</div>
+			<div class="footer-tools">
+				<span class="go-top"> <i class="icon-angle-up"></i>
+				</span>
+			</div>
+		</div>
+</body>
+</html>
