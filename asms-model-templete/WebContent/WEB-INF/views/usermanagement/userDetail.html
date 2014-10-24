@@ -226,12 +226,14 @@ jQuery(document).ready(function() {
 							class="title"> 管理平台 </span> <span class="arrow"> </span>
 					</a>
 						<ul class="sub-menu">
-							<li id="jobConfigs"><a
-								href="../job-manage/jobConfigList.html"> <i
-									class="fa fa-list"></i> 定义列表
+							<li id="jobConfigs"><a href="jobConfigList.html"> <i
+									class="fa fa-list"></i> 个人参赛列表
 							</a></li>
-							<li id="jobConfig"><a href="../job-manage/jobConfig.html">
-									<i class="fa fa-gear"></i> 定义
+							<li id="jobConfig"><a href="jobConfigList2.html"> <i
+									class="fa fa-gear"></i> 维护选手成绩
+							</a></li>
+							<li id="jobConfigs1"><a href="jobConfigList1.html"> <i
+									class="fa fa-list"></i> 赛会列表
 							</a></li>
 
 						</ul></li>
@@ -377,14 +379,16 @@ $(document).ready(function() {
 												</div>
 												<div class="form-group">
 												<div class="input-icon right">所在省：
-													<i class="fa fa-font"></i>
+													
 														<select style="width:80px"
 															class="form-control select2me">
 																<option value ="1">北京</option>
 																<option value ="1">上海</option>
 																<option value ="1">广州</option> 
 														</select>
+												</div>
 														&nbsp;&nbsp;&nbsp;
+												<div class="input-icon right">
 														所在市：
 														<select style="width:80px"
 															class="form-control select2me">
@@ -398,7 +402,7 @@ $(document).ready(function() {
 													<div class="input-icon right">
 														<label class="control-label">所在学校</label> <i
 															class="fa fa-user"></i><input type="text" id="username"
-															name="username" placeholder="真实姓名" class="form-control"
+															name="username" placeholder="所在学校地址" class="form-control"
 															value="" />
 													</div>
 												</div>

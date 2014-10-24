@@ -87,7 +87,9 @@
 <!-- END JAVASCRIPTS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="../assets/plugins/flot/jquery.flot.min.js"
-	type="text/javascript"> </script>
+	type="text/javascript">
+	
+</script>
 <script src="../assets/plugins/flot/jquery.flot.resize.min.js"
 	type="text/javascript"></script>
 <script src="../assets/plugins/flot/jquery.flot.categories.min.js"
@@ -108,7 +110,6 @@
 		Index.init();
 		Index.initCharts();
 
-		
 	});
 </script>
 
@@ -216,11 +217,14 @@
 							class="title"> 管理平台 </span> <span class="arrow"> </span>
 					</a>
 						<ul class="sub-menu">
-							<li id="jobConfigs"><a href="job-manage/jobConfigList.html">
-									<i class="fa fa-list"></i> 定义列表
+							<li id="jobConfigs"><a href="job-manage/jobConfigList.html"> <i
+									class="fa fa-list"></i> 个人参赛列表
 							</a></li>
-							<li id="jobConfig"><a href="job-manage/jobConfig.html">
-									<i class="fa fa-gear"></i> 定义
+							<li id="jobConfig"><a href="job-manage/jobConfigList2.html"> <i
+									class="fa fa-gear"></i> 维护选手成绩
+							</a></li>
+							<li id="jobConfigs1"><a href="job-manage/jobConfigList1.html"> <i
+									class="fa fa-list"></i> 赛会列表
 							</a></li>
 
 						</ul></li>
@@ -248,18 +252,15 @@
 		<!-- END SIDEBAR -->
 
 		<script>
+			$(document).ready(function() {
 
-$(document).ready(function() {
-	
-	$('.page-sidebar-wrapper li').removeClass("active");
-	
-	$('#${defaultMenu}').addClass("active");
-	$('#${defaultMenu}').parent().closest("li").addClass("active");
-	
-})
+				$('.page-sidebar-wrapper li').removeClass("active");
 
+				$('#${defaultMenu}').addClass("active");
+				$('#${defaultMenu}').parent().closest("li").addClass("active");
 
-</script>
+			})
+		</script>
 		<!-- END SIDEBAR -->
 
 		<!-- BEGIN CONTENT -->
